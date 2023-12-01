@@ -1,0 +1,23 @@
+[tool.poetry]
+name = "redmascotera-back"
+version = "0.1.0"
+description = ""
+authors = ["Gabriel Scarcella <scarcella.ga@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "^4.2.7"
+djangorestframework = "^3.14.0"
+drf-yasg = {version = "^1.21.7", extras = ["validation"]}
+
+
+[tool.poetry.group.dev.dependencies]
+django-extensions = "^3.2.3"
+mako = "^1.2.4"
+pylint = "^3.0.2"
+black = "^23.10.1"
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

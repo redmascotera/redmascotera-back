@@ -14,7 +14,7 @@ urlpatterns = [
     urls.path(
         "class-view/",
         users_endpoints.TestAPIView.as_view(),
-        name='"test_class_based_api_view'"
+        name="'test_class_based_api_view'"
     ),
     urls.path(
         "api-view/",

@@ -5,6 +5,6 @@ users models
 from django.db import models
 
 
-class ExampleModel(models.Model):
+class ExampleUserModel(models.Model):
     example_field = models.CharField(max_length=255)
 

@@ -1,0 +1,30 @@
+services:
+  nginx:
+    build:
+        context: ./.deploy/nginx
+        dockerfile: Dockerfile
+    container_name: redm-backend-nginx
+    volumes:
+      - back_www_data:/var/www/html/static:r
+      - back_uwsgi_data:/tmp/uwsgi:rw
+    ports:
+      - "8080:80"
+    depends_on:
+      - backend
+
+  backend:
+    build:
+        context: .
+        dockerfile: ./Dockerfile
+    container_name: redm-backend-app
+    env_file:
+      - .env
+    volumes:
+      - back_migrations_data:/app/migrations:rw
+      - back_www_data:/var/www/html/static:rw
+      - back_uwsgi_data:/tmp/uwsgi:rw
+
+volumes:
+  back_migrations_data:
+  back_www_data:
+  back_uwsgi_data:

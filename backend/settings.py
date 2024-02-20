@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "django.contrib.staticfiles",
     "drf_yasg",
     "rest_framework",
+    "rest_framework.authtoken",
     "app.apps.AppConfig",
     "allauth",
     "allauth.account",
@@ -47,6 +48,9 @@ INSTALLED_APPS = [
     "allauth.socialaccount.providers.google",
     "allauth.socialaccount.providers.facebook",
     "corsheaders",
+    "authentication.apps.AuthenticationConfig",
+    "dj_rest_auth",
+    "dj_rest_auth.registration",
 ]
 
 MIDDLEWARE = [
@@ -64,8 +68,6 @@ MIDDLEWARE = [
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:8000",
 ]
-
-ROOT_URLCONF = "backend.urls"
 
 TEMPLATES = [
     {
@@ -138,6 +140,25 @@ SOCIALACCOUNT_PROVIDERS = {
         }
     },
 }
+
+REST_FRAMEWORK = {
+    "DEFAULT_AUTHENTICATION_CLASSES": [
+        "rest_framework.authentication.TokenAuthentication",
+    ]
+}
+
+SITE_ID = 1
+
+ACCOUNT_EMAIL_REQUIRED = True
+ACCOUNT_EMAIL_VERIFICATION = "mandatory"
+ROOT_URLCONF = "backend.urls"
+
+
+# URL base para redireccionar la confirmación de correo electrónico
+EMAIL_CONFIRM_REDIRECT_BASE_URL = "http://localhost:3000/email/confirm/"
+
+# URL base para redireccionar el restablecimiento de contraseña
+PASSWORD_RESET_CONFIRM_REDIRECT_BASE_URL = "http://localhost:3000/password-reset/confirm/"
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/

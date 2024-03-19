@@ -155,10 +155,10 @@ ROOT_URLCONF = "backend.urls"
 
 
 # URL base para redireccionar la confirmación de correo electrónico
-EMAIL_CONFIRM_REDIRECT_BASE_URL = "http://localhost:3000/email/confirm/"
+EMAIL_CONFIRM_REDIRECT_BASE_URL = config('EMAIL_CONFIRM_REDIRECT_BASE_URL')
 
 # URL base para redireccionar el restablecimiento de contraseña
-PASSWORD_RESET_CONFIRM_REDIRECT_BASE_URL = "http://localhost:3000/password-reset/confirm/"
+PASSWORD_RESET_CONFIRM_REDIRECT_BASE_URL = config('PASSWORD_RESET_CONFIRM_REDIRECT_BASE_URL')
 
 # Internationalization
 # https://docs.djangoproject.com/en/4.2/topics/i18n/

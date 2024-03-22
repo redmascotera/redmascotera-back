@@ -23,8 +23,7 @@ COPY pyproject.toml /app/
 RUN poetry config virtualenvs.create false \
   && poetry install --no-interaction --no-ansi
 
-# Copy .env.example to .env
-RUN cp .env.example .env
+
 
 # Copy entrypoint
 COPY ./entrypoint.sh /app/entrypoint.sh
@@ -35,7 +34,6 @@ COPY ./uwsgi.ini /app/uwsgi.ini
 COPY ./manage.py /app
 COPY ./app /app/app
 COPY ./backend /app/backend
-# COPY .env ./app/.env
 
 # Entry point
 ENTRYPOINT ["/app/entrypoint.sh"]

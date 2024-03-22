@@ -10,7 +10,7 @@ python = "^3.11"
 django = "^4.2.7"
 djangorestframework = "^3.14.0"
 drf-yasg = {version = "^1.21.7", extras = ["validation"]}
-
+dj-rest-auth = "^2.1.11" 
 
 [tool.poetry.group.dev.dependencies]
 django-extensions = "^3.2.3"
